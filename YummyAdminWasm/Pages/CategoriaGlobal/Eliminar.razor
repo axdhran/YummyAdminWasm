@@ -1,0 +1,76 @@
+@page "/categoriaglobal/eliminar/{id:int}"
+
+@using YummyAdmindWasm.Models
+@using MudBlazor
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+<MudText Typo="Typo.h2" Class="ml">Eliminar Categoría</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="categoriaG" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Nombre" @bind-Value="categoriaG.nombre" For="@(() => categoriaG.nombre)" />
+                        <MudDivider />
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Href="@($"/categoriaglobal/index")" Variant="Variant.Filled" Color="Color.Info"
+                                   Class="text-center">Regresar</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" Class="ml-auto">Eliminar</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+            @if (showLeaveAlert)
+            {
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">Ocurrió un problema.</MudAlert>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private bool showLeaveAlert = false;
+    CategoriaGlobal? categoriaG = new CategoriaGlobal();
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+
+        var resp = await httpClient.GetStringAsync("categoriasGlobal/" + id);
+        categoriaG = JsonSerializer.Deserialize<CategoriaGlobal>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        await eliminar();
+    }
+
+    private async Task eliminar()
+    {
+
+        var httpResponse = await httpClient.DeleteAsync("categoriasGlobal/" + categoriaG.id);
+
+        if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
+        {
+            showLeaveAlert = true;
+        }
+        else
+        {
+            navigationManager.NavigateTo("categoriaglobal/index");
+        }
+    }
+
+    private void CloseMe(bool value)
+    {
+        showLeaveAlert = false;
+    }
+}
