@@ -2334,11 +2334,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mac/YummyAdmindWasm/YummyAdminWasm/YummyAdminWasm.csproj",
+      "projectUniqueName": "/Users/mac/YummyAdminWasm/YummyAdminWasm/YummyAdminWasm.csproj",
       "projectName": "YummyAdminWasm",
-      "projectPath": "/Users/mac/YummyAdmindWasm/YummyAdminWasm/YummyAdminWasm.csproj",
+      "projectPath": "/Users/mac/YummyAdminWasm/YummyAdminWasm/YummyAdminWasm.csproj",
       "packagesPath": "/Users/mac/.nuget/packages/",
-      "outputPath": "/Users/mac/YummyAdmindWasm/YummyAdminWasm/obj/",
+      "outputPath": "/Users/mac/YummyAdminWasm/YummyAdminWasm/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mac/.nuget/NuGet/NuGet.Config"
