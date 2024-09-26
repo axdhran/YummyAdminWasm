@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "YummyAdminWasm",
   "resources": {
-    "hash": "sha256-hS6Ej6B4EGcq2gmfvFvXGCKZkBIUH6nMLbk1XR7MuJk=",
+    "hash": "sha256-lHB5CGtsy3SiCWdb6qU91rSzkwjiYIf+dbX+INqYVNg=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.cgcie2mdsf.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -213,10 +213,10 @@
       "mscorlib.wasm": "sha256-Gz8PyW2/fwihe5ul81OwmRUrU71r+KtbyRw6xlOGD+Q=",
       "netstandard.wasm": "sha256-jMTqIQzoDS810lyhZpMO5eEC36EzntXqSVn+2qwkOMQ=",
       "System.Private.CoreLib.wasm": "sha256-NFj5WE5VLP2LptZIRJCUIc1AMk06FmxpsSILfPISwAw=",
-      "YummyAdminWasm.wasm": "sha256-wKAF4iFcvp4/3cE7Jf2+Glqc/nYGnIq5Z6xlWtCOJPc="
+      "YummyAdminWasm.wasm": "sha256-nJFvh6cVW1YIDXCQu5U4/SgKWlq+KX3Z/22LKNy1i8Y="
     },
     "pdb": {
-      "YummyAdminWasm.pdb": "sha256-E3ScgiGx97lHrzeJ8LwVcsjG3AMmf6uVTKeL1qnSQhs="
+      "YummyAdminWasm.pdb": "sha256-nSohez+IDc6343O1APtN5aoXdLySJwP1ELXEQmjYReA="
     }
   },
   "cacheBootResources": true,

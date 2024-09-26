@@ -54,7 +54,12 @@
         httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
         await getCategorias();
-        categoriaSeleccionada = categoriasG.FirstOrDefault().id;
+
+         var primeraCategoria = categoriasG.FirstOrDefault();
+            if (primeraCategoria != null)
+            {
+                categoriaSeleccionada = primeraCategoria.id;
+            }
     }
 
     private async Task OnValidSubmit(EditContext context)
@@ -75,7 +80,7 @@
         }
         else
         {
-            navigationManager.NavigateTo("proyecto/index");
+            navigationManager.NavigateTo("categoria/index");
         }
     }
 

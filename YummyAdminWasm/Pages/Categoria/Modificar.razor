@@ -57,7 +57,7 @@
         new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
         await getCategoriasGlobales();
 
-        var resp = await httpClient.GetStringAsync("proyectos/" + id);
+        var resp = await httpClient.GetStringAsync("categorias/" + id);
         categoria = JsonSerializer.Deserialize<Categoria>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
        
         categoriaSeleccionada = categoria.categoriaGlobal.id;
@@ -79,7 +79,7 @@
         }
         else
         {
-            navigationManager.NavigateTo("proyecto/index");
+            navigationManager.NavigateTo("categoria/index");
         }
     }
 
