@@ -69,26 +69,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhR2xvYmFsL01vZGlmaWNhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Agregar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vQWdyZWdhci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Detalle.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vRGV0YWxsZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Eliminar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vRWxpbWluYXIucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Modificar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vTW9kaWZpY2FyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

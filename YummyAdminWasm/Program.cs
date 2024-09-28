@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using YummyAdminWasm;
 using YummyAdminWasm.Auth;
 using MudBlazor.Services;
-using YummyAdminWasm.Services;
 
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -17,9 +16,6 @@ builder.Services.AddScoped<UserAuth>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationProvider>();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddBlazoredLocalStorage();
-
-builder.Services.AddScoped<FirebaseStorageService>();
-
 
 builder.Services.AddMudServices();
 

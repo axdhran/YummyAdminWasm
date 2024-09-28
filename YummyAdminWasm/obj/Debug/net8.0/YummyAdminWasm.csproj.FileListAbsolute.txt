@@ -1054,7 +1054,9 @@
 /Users/mac/YummyAdmindWasm/YummyAdminWasm/obj/Debug/net8.0/webcil/Microsoft.AspNetCore.Components.Authorization.wasm
 /Users/mac/YummyAdmindWasm/YummyAdminWasm/obj/Debug/net8.0/compressed/wxrs6cgunp.gz
 /Users/mac/YummyAdmindWasm/YummyAdminWasm/obj/Debug/net8.0/compressed/5lzvn941gd.gz
+/Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js
+/Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/Blazored.LocalStorage.wasm
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/dotnet.js
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/dotnet.js.map
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/dotnet.native.8.0.8.cgcie2mdsf.js
@@ -1064,8 +1066,6 @@
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/icudt_CJK.dat
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/icudt_EFIGS.dat
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/icudt_no_CJK.dat
-/Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json
-/Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/Blazored.LocalStorage.wasm
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Authorization.wasm
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Components.Authorization.wasm
 /Users/mac/YummyAdminWasm/YummyAdminWasm/bin/Debug/net8.0/wwwroot/_framework/Microsoft.AspNetCore.Components.Forms.wasm
