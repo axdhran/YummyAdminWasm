@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "YummyAdminWasm",
   "resources": {
-    "hash": "sha256-uJaKgsdMvnDnaoPcMy0pRRzGKYt3gdYPjsngK67eNAc=",
+    "hash": "sha256-Ae97f6PwSrLu8KsSKHQQwIW8Tb2JP7bfOthm4/+g9oU=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.cgcie2mdsf.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -18,6 +18,8 @@
     },
     "assembly": {
       "Blazored.LocalStorage.wasm": "sha256-OaMAAd5n7ORfyur5e3QIyEVKJ76MKIvwbg7/icnnYcU=",
+      "Firebase.Auth.wasm": "sha256-cVPmlpx5ocKwnrcRzPoD8CrBlsDqDB0Q85Sl2KpQpxk=",
+      "Firebase.Storage.wasm": "sha256-ccrbYnEpjfw9QPeyLiRVnv1Y/fZtpyZ9rc6AbTpPO1k=",
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-H1yH7iBNYt/rilvQT6qsv2frcFFOBUKBnRrGQ1AIHnI=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-kPAmhH4D4UN/DyWkGyB1Sxs7tQyVDV150swtUfTSJJ8=",
       "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-V1DjV5FIfpwmhLHgE+6Sv/E95t+50ilGiAk6J5mqNFA=",
@@ -44,6 +46,7 @@
       "Microsoft.JSInterop.wasm": "sha256-okH//v00d9qA97lMQaTcXOMrfK8IIcOYOfzcEhcQle8=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-FWBbfufvNOmor0iVsxtEPG3l1VI97wMYStE1/bHHo9w=",
       "MudBlazor.wasm": "sha256-+6sc9t3KRXuYF8Q0j0JL08wP6j51Vkp58oNHjoHFvr0=",
+      "Newtonsoft.Json.wasm": "sha256-erKuIr8Gjq+X/Ji4X+pGauW71/eyGT7GHVu8k+7ie8I=",
       "System.IO.Pipelines.wasm": "sha256-JqVBy6SV+3qk+IK3VJiyIDt9CsVk6b1/ytTXmrI4mTM=",
       "Microsoft.CSharp.wasm": "sha256-GN0MwA/4MlNKz3Vsxx082ablExUe/q8eec3eRX+NQ20=",
       "Microsoft.VisualBasic.Core.wasm": "sha256-NJUDEhGvk52ZfA9hUjET9z6opkxrepm1OMfzK6VNXJc=",
@@ -213,10 +216,10 @@
       "mscorlib.wasm": "sha256-Gz8PyW2/fwihe5ul81OwmRUrU71r+KtbyRw6xlOGD+Q=",
       "netstandard.wasm": "sha256-jMTqIQzoDS810lyhZpMO5eEC36EzntXqSVn+2qwkOMQ=",
       "System.Private.CoreLib.wasm": "sha256-NFj5WE5VLP2LptZIRJCUIc1AMk06FmxpsSILfPISwAw=",
-      "YummyAdminWasm.wasm": "sha256-ikbPLrftBRNb9PZwhFNNNshTpFRvqPiyN4li2/j3ack="
+      "YummyAdminWasm.wasm": "sha256-Mn5yLmnq7fwZ0bW0UlBoCs6QZ/QX3SmyLboDWVOLULo="
     },
     "pdb": {
-      "YummyAdminWasm.pdb": "sha256-MTzW8KedZ6ilyqtL99Tz0tm64LoAKLi6M5jmHT1twLo="
+      "YummyAdminWasm.pdb": "sha256-jJ/E6LA1rhUCwHRQClPJbS5VnK3hPJ86oQdp/R03LhY="
     }
   },
   "cacheBootResources": true,

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YummyAdminWasm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23cf873dcc4e568c94f9794d74b3c25c2a33eb23")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+169e493773d48c9dbee295cfd508cef6f630b95f")]
 [assembly: System.Reflection.AssemblyProductAttribute("YummyAdminWasm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YummyAdminWasm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

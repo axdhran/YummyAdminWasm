@@ -1,0 +1,248 @@
+@page "/comercio/agregar"
+
+@using YummyAdmindWasm.Models
+@using MudBlazor
+@using Firebase.Auth
+@using Firebase.Auth.Providers
+@using Firebase.Storage
+
+@inject IConfiguration Configuration
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+<MudText Typo="Typo.h2" Class="ml">Nuevo Categoria</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="comercio" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardContent>
+
+                        <MudTextField Label="Nombre" @bind-Value="comercio.nombre" For="@(() => comercio.nombre)" />
+                        <MudTextField Label="Telefono" @bind-Value="comercio.telefono" For="@(() => comercio.telefono)" />
+                        <MudTextField Label="Email" @bind-Value="comercio.email" For="@(() => comercio.email)" />
+                        <MudTextField Label="Direccion" @bind-Value="comercio.direccion" For="@(() => comercio.direccion)" />
+                        <MudTextField Label="Horario" @bind-Value="comercio.horario" For="@(() => comercio.horario)" />
+                      
+                        <MudSelect Variant="Variant.Outlined" Label="Categoría Global" AnchorOrigin="Origin.BottomCenter"
+                                   @bind-Value="categoriaSeleccionada">
+                            @foreach (var item in categorias)
+                            {
+                                <MudSelectItem Value="@item.id">@item.nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+                        <br>
+                        <br>
+                        <h3>Subir imagen a Firebase Storage</h3>
+
+                        <InputFile OnChange="@LoadImgFiles" />
+
+                        @if (selectedImageFile != null)
+                        {
+                            <p>Archivo seleccionado: @selectedImageFile.Name</p>
+                            <MudButton @onclick="UploadImage" Disabled="@(isUploadingImage)">Subir imagen</MudButton>
+                            <p>@uploadImageStatus</p>
+                        }
+                        <br>
+                        <br>
+                        <h3>Subir logo a Firebase Storage</h3>
+
+                        <InputFile OnChange="@LoadLogFiles" />
+
+                        @if (selectedLogoFile != null)
+                        {
+                            <p>Archivo seleccionado: @selectedLogoFile.Name</p>
+                            <MudButton @onclick="UploadLogo" Disabled="@(isUploadingLogo)">Subir imagen</MudButton>
+                             <p>@uploadLogoStatus</p>
+                        }
+
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Href="@($"/comercio/index")" Variant="Variant.Filled" Color="Color.Info"
+                                   Class="text-center">Regresar</MudButton>
+
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                   Class="ml-auto" 
+                                    Disabled="@(isUploadingImage || isUploadingLogo || !isImageUploaded || !isLogoUploaded)">
+                                    Guardar
+                        </MudButton>
+
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+            @if (showLeaveAlert)
+            {
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">No se pudo guardar.</MudAlert>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    bool success;
+    private IEnumerable<Categoria> categorias = new List<Categoria>();
+    private bool showLeaveAlert = false;
+    Comercio comercio = new Comercio();
+    private int categoriaSeleccionada;
+
+    private IBrowserFile? selectedImageFile;
+    private IBrowserFile? selectedLogoFile;
+
+    string? downloadUrl;
+    string? downloadLogUrl;
+    private string? uploadImageStatus;
+    private string? uploadLogoStatus;
+
+    private bool isUploadingImage = false;
+    private bool isUploadingLogo = false;
+    private bool isImageUploaded = false;
+    private bool isLogoUploaded = false;
+   
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+        await getCategorias();
+
+         var primeraCategoria = categorias.FirstOrDefault();
+            if (primeraCategoria != null)
+            {
+                categoriaSeleccionada = primeraCategoria.id;
+            }
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        if (isImageUploaded && isLogoUploaded)
+        {
+            await save();
+            success = true;
+            StateHasChanged();
+        }  
+    }
+
+    private async Task LoadImgFiles(InputFileChangeEventArgs e)
+    {
+        selectedImageFile = e.File;
+    }
+
+    private async Task LoadLogFiles(InputFileChangeEventArgs e)
+    {
+        selectedLogoFile = e.File;
+    }
+
+    private async Task UploadImage()
+    {
+        if (selectedImageFile != null)
+        {
+            isUploadingImage = true;
+            uploadImageStatus = "Subiendo imagen...";
+            try
+            {
+                downloadUrl = await SubirAStorageFirebase(selectedLogoFile, "imagenes");
+                isImageUploaded = true;
+                uploadImageStatus = "Imagen subida correctamente.";
+            }
+            catch (Exception ex)
+            {
+                uploadImageStatus = "Error al subir la imagen.";
+                Console.WriteLine($"Error subiendo la imagen: {ex.Message}");
+                showLeaveAlert = true;
+            }
+            finally
+            {
+                isUploadingImage = false;
+                StateHasChanged();
+            }
+        }
+        selectedImageFile = null;
+    }
+    private async Task UploadLogo()
+    {
+        if (selectedLogoFile != null)
+        {
+            isUploadingLogo = true;
+            uploadLogoStatus = "Subiendo logo...";
+            try
+            {
+                downloadLogUrl = await SubirAStorageFirebase(selectedLogoFile, "logos");
+                isLogoUploaded = true;
+                uploadLogoStatus = "Logo subido correctamente.";
+            }
+            catch (Exception ex)
+            {
+                uploadLogoStatus = "Error al subir el logo.";
+                Console.WriteLine($"Error subiendo el logo: {ex.Message}");
+                showLeaveAlert = true;
+            }
+            finally
+            {
+                isUploadingLogo = false;
+                StateHasChanged();
+            }
+        }
+        selectedLogoFile = null;
+    }
+
+    private async Task<string> SubirAStorageFirebase(IBrowserFile file, string folder)
+    {
+         var apiKey = "AIzaSyA8rTDDaeIPRtCel7d4sySa1jwq9xaASro";
+            var bucket = "yummyad-fe0c2.appspot.com";
+            var authEmail = "adrianhernandez3p0@gmail.com";
+            var authPassword = "Adrian123$#";
+
+            var config = new FirebaseAuthConfig{
+                ApiKey = apiKey,
+                AuthDomain = $"yummyad-fe0c2.firebaseapp.com",
+                Providers = new FirebaseAuthProvider[]{
+                    new EmailProvider()
+                }
+            };
+            var client = new FirebaseAuthClient(config);
+            var auth = await client.SignInWithEmailAndPasswordAsync(authEmail, authPassword);
+
+            var cancellation = new CancellationTokenSource();
+
+            var task = new FirebaseStorage(
+                bucket,
+                new FirebaseStorageOptions
+                {
+                    AuthTokenAsyncFactory = async () => await auth.User.GetIdTokenAsync(),
+                    ThrowOnCancel = true
+                })
+                .Child("folder")
+                .Child(file.Name)
+                .PutAsync(file.OpenReadStream(maxAllowedSize: 10485760), cancellation.Token);
+
+            return await task;
+    }
+    private async Task save()
+    {
+        comercio.categoriaId = categoriaSeleccionada;
+        comercio.imagen = downloadUrl;
+        comercio.logo = downloadLogUrl;
+        var httpResponse = await httpClient.PostAsJsonAsync<Comercio>("comercios", comercio);
+
+        if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
+        {
+            showLeaveAlert = true;
+        }
+        else
+        {
+            navigationManager.NavigateTo("comercio/index");
+        }
+    }
+    private void CloseMe(bool value)
+    {
+        showLeaveAlert = false;
+    }
+    private async Task getCategorias()
+    {
+        //var httpResponse = await httpClient.GetStringAsync("categorias"); // .NET
+        var httpResponse = await httpClient.GetStringAsync("categorias/lista"); // Java
+        categorias = JsonSerializer.Deserialize<IEnumerable<Categoria>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    }
+}
