@@ -1,0 +1,101 @@
+@page "/comercio/editar/{id:int}"
+
+@using YummyAdmindWasm.Models
+@using MudBlazor
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+<MudText Typo="Typo.h2" Class="ml">Editar Comercio</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="comercio" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Nombre" @bind-Value="comercio.nombre" For="@(() => comercio.nombre)" />
+                        <MudTextField Label="Telefono" @bind-Value="comercio.telefono" For="@(() => comercio.telefono)" />
+                        <MudTextField Label="Email" @bind-Value="comercio.email" For="@(() => comercio.email)" />
+                        <MudTextField Label="Direccion" @bind-Value="comercio.direccion" For="@(() => comercio.direccion)" />
+                        <MudTextField Label="Horario" @bind-Value="comercio.horario" For="@(() => comercio.horario)" />
+                      
+                      
+                        <MudSelect Variant="Variant.Outlined" Label="Categoría" AnchorOrigin="Origin.BottomCenter"
+                                   @bind-Value="categoriaSeleccionada">
+                            @foreach (var item in categorias)
+                            {
+                                <MudSelectItem Value="@item.id">@item.nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Href="@($"/comercio/index")" Variant="Variant.Filled" Color="Color.Info"
+                                   Class="text-center">Regresar</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                   Class="ml-auto">Guardar cambios</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+            @if (showLeaveAlert)
+            {
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">Ocurrió un problema.</MudAlert>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private IEnumerable<Categoria> categorias = new List<Categoria>();
+    private int categoriaSeleccionada;
+    private bool showLeaveAlert = false;
+    Comercio comercio = new Comercio();
+   
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+        new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+        await getCategoriasGlobales();
+
+        var resp = await httpClient.GetStringAsync("comercios/" + id);
+        comercio = JsonSerializer.Deserialize<Comercio>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+       
+        categoriaSeleccionada = comercio.categoria.id;
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        await saveChanges();
+    }
+
+    private async Task saveChanges()
+    {
+        comercio.categoriaId = categoriaSeleccionada;
+        var httpResponse = await httpClient.PutAsJsonAsync<Comercio>("comercios/" + comercio.id, comercio);
+
+        if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
+        {
+            showLeaveAlert = true;
+        }
+        else
+        {
+            navigationManager.NavigateTo("comercio/index");
+        }
+    }
+
+    private void CloseMe(bool value)
+    {
+        showLeaveAlert = false;
+    }
+
+    private async Task getCategoriasGlobales()
+    {
+        var httpResponse = await httpClient.GetStringAsync("categorias/lista");
+        categorias = JsonSerializer.Deserialize<IEnumerable<Categoria>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    }
+}

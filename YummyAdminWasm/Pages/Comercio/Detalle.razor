@@ -1,0 +1,66 @@
+@page "/comercio/detalle/{id:int}"
+
+@using YummyAdmindWasm.Models
+@using MudBlazor
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+<MudText Typo="Typo.h2" Class="ml">Detalles del Comercio</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="comercio" >
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Nombre" @bind-Value="comercio.nombre" For="@(() => comercio.nombre)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Telefono" @bind-Value="comercio.telefono" For="@(() => comercio.telefono)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Email" @bind-Value="comercio.email" For="@(() => comercio.email)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Direccion" @bind-Value="comercio.direccion" For="@(() => comercio.direccion)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Horario" @bind-Value="comercio.horario" For="@(() => comercio.horario)" ReadOnly="ReadOnly" />
+                        
+                        <MudTextField Label="Categoría" @bind-Value="categoria.nombre" For="@(() => categoria.nombre)" ReadOnly="ReadOnly" ></MudTextField>
+                           
+                        <MudImage Src="@comercio.logo" Alt="Logo" Elevation="25" Class="rounded-lg"  />
+                          
+                        <MudImage Src="@comercio.imagen" Alt="Imagen" Elevation="25" Class="rounded-lg" />
+                    </MudCardContent>
+
+                    <MudCardActions>
+                        <MudButton Href="@($"/comercio/index")" Variant="Variant.Filled" Color="Color.Info"
+                                   Class="text-center">Regresar</MudButton>
+                    </MudCardActions>
+
+                </MudCard>
+            </EditForm>
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private Comercio comercio = new Comercio();
+    private Categoria categoria = new Categoria();
+    bool ReadOnly = true;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+        await getComercio();
+
+        categoria = comercio.categoria;
+    }
+
+    private async Task getComercio()
+    {
+        var resp = await httpClient.GetStringAsync("comercios/" + id);
+        comercio = JsonSerializer.Deserialize<Comercio>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+    }
+}

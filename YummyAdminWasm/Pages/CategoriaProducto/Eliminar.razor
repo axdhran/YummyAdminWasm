@@ -1,4 +1,4 @@
-@page "/categoriaglobal/eliminar/{id:int}"
+@page "/categoriaProducto/eliminar/{id:int}"
 
 @using YummyAdmindWasm.Models
 @using MudBlazor
@@ -7,22 +7,25 @@
 @inject NavigationManager navigationManager
 @inject ILocalStorageService _localStorageService
 
-<MudText Typo="Typo.h2" Class="ml">Eliminar Categoría Global</MudText>
+
+<MudText Typo="Typo.h2" Class="ml">Eliminar Categoria Producto</MudText>
 
 <MudGrid>
     <MudItem xs="12" sm="7">
         <MudPaper Class="pa-4">
-            <EditForm Model="categoriaG" OnValidSubmit="OnValidSubmit">
+            <EditForm Model="categoriaProducto" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
                 <MudCard>
                     <MudCardContent>
-                        <MudTextField Label="Nombre" @bind-Value="categoriaG.nombre" For="@(() => categoriaG.nombre)" />
-                        <MudDivider />
+                        <MudTextField Label="Nombre" @bind-Value="categoriaProducto.nombre" For="@(() => categoriaProducto.nombre)" />
+                      
+                        <MudTextField Label="Categoría Global" @bind-Value="comercio.nombre" For="@(() => comercio.nombre)"></MudTextField>
                     </MudCardContent>
                     <MudCardActions>
-                        <MudButton Href="@($"/categoriaglobal/index")" Variant="Variant.Filled" Color="Color.Info"
+                        <MudButton Href="@($"/categoriaProducto/index")" Variant="Variant.Filled" Color="Color.Info"
                                    Class="text-center">Regresar</MudButton>
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error" Class="ml-auto">Eliminar</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error"
+                                   Class="ml-auto">Eliminar</MudButton>
                     </MudCardActions>
                 </MudCard>
             </EditForm>
@@ -37,16 +40,20 @@
 @code {
     [Parameter]
     public int id { get; set; }
+
+    private CategoriaProducto categoriaProducto = new CategoriaProducto();
+    private Comercio comercio = new Comercio();
+  
     private bool showLeaveAlert = false;
-    CategoriaGlobal? categoriaG = new CategoriaGlobal();
 
     protected override async Task OnInitializedAsync()
     {
         httpClient.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+        new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
 
-        var resp = await httpClient.GetStringAsync("categoriasGlobal/" + id);
-        categoriaG = JsonSerializer.Deserialize<CategoriaGlobal>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        var resp = await httpClient.GetStringAsync("categoriaProductos/" + id);
+        categoriaProducto = JsonSerializer.Deserialize<CategoriaProducto>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        comercio = categoriaProducto.comercio;
     }
 
     private async Task OnValidSubmit(EditContext context)
@@ -56,8 +63,7 @@
 
     private async Task eliminar()
     {
-
-        var httpResponse = await httpClient.DeleteAsync("categoriasGlobal/" + categoriaG.id);
+        var httpResponse = await httpClient.DeleteAsync("categoriaProductos/" + categoriaProducto.id);
 
         if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
         {
@@ -65,7 +71,7 @@
         }
         else
         {
-            navigationManager.NavigateTo("categoriaglobal/index");
+            navigationManager.NavigateTo("categoriaProducto/index");
         }
     }
 

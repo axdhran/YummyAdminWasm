@@ -1,0 +1,98 @@
+@page "/categoriaProducto/agregar"
+
+@using YummyAdmindWasm.Models
+@using MudBlazor
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+<MudText Typo="Typo.h2" Class="ml">Nuevo Categoria Producto</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="categoriaProducto" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Nombre" @bind-Value="categoriaProducto.nombre" For="@(() => categoriaProducto.nombre)" />
+                      
+                        <MudSelect Variant="Variant.Outlined" Label="Comercio" AnchorOrigin="Origin.BottomCenter"
+                                   @bind-Value="comercioSeleccionado">
+                            @foreach (var item in comercios)
+                            {
+                                <MudSelectItem Value="@item.id">@item.nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudButton Href="@($"/categoriaProducto/index")" Variant="Variant.Filled" Color="Color.Info"
+                                   Class="text-center">Regresar</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                                   Class="ml-auto">Guardar</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+            @if (showLeaveAlert)
+            {
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">No se pudo guardar.</MudAlert>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    bool success;
+    private IEnumerable<Comercio> comercios = new List<Comercio>();
+    private bool showLeaveAlert = false;
+    CategoriaProducto categoriaProducto = new CategoriaProducto();
+    private int comercioSeleccionado;
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+        await getComercios();
+
+         var primeraComercio = comercios.FirstOrDefault();
+            if (primeraComercio != null)
+            {
+                comercioSeleccionado = primeraComercio.id;
+            }
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        await save();
+        success = true;
+        StateHasChanged();
+    }
+
+    private async Task save()
+    {
+        categoriaProducto.comercioId = comercioSeleccionado;
+        var httpResponse = await httpClient.PostAsJsonAsync<CategoriaProducto>("categoriaProductos", categoriaProducto);
+
+        if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
+        {
+            showLeaveAlert = true;
+        }
+        else
+        {
+            navigationManager.NavigateTo("categoriaProducto/index");
+        }
+    }
+
+    private void CloseMe(bool value)
+    {
+        showLeaveAlert = false;
+    }
+
+    private async Task getComercios()
+    {
+        //var httpResponse = await httpClient.GetStringAsync("categorias"); // .NET
+        var httpResponse = await httpClient.GetStringAsync("comercios/lista"); // Java
+        comercios = JsonSerializer.Deserialize<IEnumerable<Comercio>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    }
+}
