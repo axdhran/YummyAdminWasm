@@ -16,115 +16,135 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = YummyAdminWasm
 build_property.RootNamespace = YummyAdminWasm
-build_property.ProjectDir = /Users/mac/YummyAdminWasm/YummyAdminWasm/
+build_property.ProjectDir = C:\Users\auror\Documents\Projects\YummyAdminWasm\YummyAdminWasm\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/mac/YummyAdminWasm/YummyAdminWasm
+build_property.MSBuildProjectDirectory = C:\Users\auror\Documents\Projects\YummyAdminWasm\YummyAdminWasm
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/App.razor]
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Layout/LoginLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0xvZ2luTGF5b3V0LnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Layout/LoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Agregar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhL0FncmVnYXIucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Agregar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhR2xvYmFsXEFncmVnYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Detalle.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhL0RldGFsbGUucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Eliminar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhR2xvYmFsXEVsaW1pbmFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Eliminar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhL0VsaW1pbmFyLnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhR2xvYmFsXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhL0luZGV4LnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Modificar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhR2xvYmFsXE1vZGlmaWNhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Modificar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhL01vZGlmaWNhci5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Agregar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhUHJvZHVjdG9cQWdyZWdhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Agregar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhR2xvYmFsL0FncmVnYXIucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Detalle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhUHJvZHVjdG9cRGV0YWxsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Eliminar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhR2xvYmFsL0VsaW1pbmFyLnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Eliminar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhUHJvZHVjdG9cRWxpbWluYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhR2xvYmFsL0luZGV4LnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhUHJvZHVjdG9cSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaGlobal/Modificar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhR2xvYmFsL01vZGlmaWNhci5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Modificar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhUHJvZHVjdG9cTW9kaWZpY2FyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Agregar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhUHJvZHVjdG8vQWdyZWdhci5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Agregar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXEFncmVnYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Detalle.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhUHJvZHVjdG8vRGV0YWxsZS5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Detalle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXERldGFsbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Eliminar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhUHJvZHVjdG8vRWxpbWluYXIucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Eliminar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXEVsaW1pbmFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhUHJvZHVjdG8vSW5kZXgucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/CategoriaProducto/Modificar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2F0ZWdvcmlhUHJvZHVjdG8vTW9kaWZpY2FyLnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Categoria/Modificar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhXE1vZGlmaWNhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Agregar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vQWdyZWdhci5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Agregar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tZXJjaW9cQWdyZWdhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Detalle.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vRGV0YWxsZS5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Detalle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tZXJjaW9cRGV0YWxsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Eliminar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vRWxpbWluYXIucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Eliminar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tZXJjaW9cRWxpbWluYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vSW5kZXgucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tZXJjaW9cSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Modificar.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tZXJjaW8vTW9kaWZpY2FyLnJhem9y
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Comercio/Modificar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tZXJjaW9cTW9kaWZpY2FyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/_Imports.razor]
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Producto/Agregar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cQWdyZWdhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Producto/Detalle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cRGV0YWxsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Producto/Eliminar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cRWxpbWluYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Producto/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Pages/Producto/Modificar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdG9cTW9kaWZpY2FyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-mjzegdtc7b
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-eh6mq9i9m7
 
-[/Users/mac/YummyAdminWasm/YummyAdminWasm/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-1e4567qhld
+[C:/Users/auror/Documents/Projects/YummyAdminWasm/YummyAdminWasm/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-19xat49n2b
