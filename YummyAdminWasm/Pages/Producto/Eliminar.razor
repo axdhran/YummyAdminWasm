@@ -1,0 +1,87 @@
+﻿@page "/producto/eliminar/{id:int}"
+
+@using YummyAdmindWasm.Models
+@using MudBlazor
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+
+<MudText Typo="Typo.h2" Class="ml">Eliminar Producto</MudText>
+
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="producto" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <MudCard>
+                    <MudCardContent>
+                        <MudTextField Label="Nombre" @bind-Value="producto.nombre" For="@(() => producto.nombre)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Precio" @bind-Value="producto.precio" For="@(() => producto.precio)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Descripción" @bind-Value="producto.descripcion" For="@(() => producto.descripcion)" ReadOnly="ReadOnly" />
+                        <MudTextField Label="Categoría" @bind-Value="categoria.nombre" For="@(() => categoria.nombre)" ReadOnly="ReadOnly" />
+
+                        <MudImage Src="@producto.imagen" Alt="Imagen del Producto" Elevation="25" Class="rounded-lg" />
+                    </MudCardContent>
+
+                    <MudCardActions>
+                        <MudButton Href="@($"/producto/index")" Variant="Variant.Filled" Color="Color.Info"
+                                   Class="text-center">Regresar</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Error"
+                                   Class="ml-auto">Eliminar</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </EditForm>
+            @if (showLeaveAlert)
+            {
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe(true))">Ocurrió un problema.</MudAlert>
+            }
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private Producto producto = new Producto();
+    private CategoriaProducto categoria = new CategoriaProducto();
+
+    private bool showLeaveAlert = false;
+    bool ReadOnly = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient.DefaultRequestHeaders.Authorization =
+        new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+
+        var resp = await httpClient.GetStringAsync($"productos/{id}");
+        producto = JsonSerializer.Deserialize<Producto>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        categoria = producto.categoriaProducto;
+    }
+
+    private async Task OnValidSubmit(EditContext context)
+    {
+        await eliminar();
+    }
+
+    private async Task eliminar()
+    {
+        var httpResponse = await httpClient.DeleteAsync($"productos/{producto.id}");
+
+        if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
+        {
+            showLeaveAlert = true;
+        }
+        else
+        {
+            navigationManager.NavigateTo("producto/index");
+        }
+    }
+
+    private void CloseMe(bool value)
+    {
+        showLeaveAlert = false;
+    }
+}

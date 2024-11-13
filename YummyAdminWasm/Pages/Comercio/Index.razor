@@ -55,8 +55,7 @@
 
     private async Task getAll()
     {
-        //var httpResponse = await httpClient.GetStringAsync("proyectos"); // .NET
-        var httpResponse = await httpClient.GetStringAsync("comercios/lista"); // Java
+        var httpResponse = await httpClient.GetStringAsync("comercios/lista");
         comercios = JsonSerializer.Deserialize<IEnumerable<Comercio>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     }
 

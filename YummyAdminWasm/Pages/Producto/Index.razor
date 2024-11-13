@@ -1,4 +1,4 @@
-@page "/categoria/index"
+﻿@page "/producto/index"
 
 @using MudBlazor
 @using YummyAdmindWasm.Models
@@ -7,9 +7,9 @@
 @inject NavigationManager navigationManager
 @inject ILocalStorageService _localStorageService
 
-<MudText Typo="Typo.h2" Class="ml">Categorias</MudText>
+<MudText Typo="Typo.h2" Class="ml">Productos</MudText>
 
-<MudTable Items="@categorias" Hover="true" Bordered="true" Striped="true">
+<MudTable Items="@productos" Hover="true" Bordered="true" Striped="true">
     <ToolBarContent>
         <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="goAdd" />
         <MudSpacer />
@@ -18,31 +18,35 @@
     <HeaderContent>
         <MudTh>Id</MudTh>
         <MudTh>Nombre</MudTh>
-        <MudTh>Categoría Global</MudTh>
+        <MudTh>Categoría</MudTh>
+        <MudTh>Precio</MudTh>
+        <MudTh>Estado</MudTh>
         <MudTh>Acciones</MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="id">@context.id</MudTd>
         <MudTd DataLabel="nombre">@context.nombre</MudTd>
-        <MudTd DataLabel="categoríaGlobal">@context.categoriaGlobal.nombre</MudTd>
+        <MudTd DataLabel="categoría">@context.categoriaProductoId</MudTd>
+        <MudTd DataLabel="precio">@context.precio</MudTd>
+        <MudTd DataLabel="estado">@context.estado</MudTd>
         <MudTd>
-            <MudButton Href="@($"/categoria/detalle/{context.id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Info"
+            <MudButton Href="@($"/producto/detalle/{context.id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Info"
                        Class="text-center">Detalle</MudButton>
-            <MudButton Href="@($"/categoria/editar/{context.id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Tertiary"
+            <MudButton Href="@($"/producto/editar/{context.id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Tertiary"
                        Class="text-center">Editar</MudButton>
-            <MudButton Href="@($"/categoria/eliminar/{context.id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning"
+            <MudButton Href="@($"/producto/eliminar/{context.id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning"
                        Class="text-center">Eliminar</MudButton>
         </MudTd>
     </RowTemplate>
     <PagerContent>
-        <MudTablePager /> 
+        <MudTablePager />
     </PagerContent>
 </MudTable>
 
 @code {
-    private IEnumerable<Categoria>? categorias = new List<Categoria>();
+    private IEnumerable<Producto>? productos = new List<Producto>();
     private string searchText = "";
-    private Categoria categoria = new Categoria();
+    private Producto producto = new Producto();
 
     protected override async Task OnInitializedAsync()
     {
@@ -53,13 +57,13 @@
 
     private async Task getAll()
     {
-        //var httpResponse = await httpClient.GetStringAsync("proyectos"); // .NET
-        var httpResponse = await httpClient.GetStringAsync("categorias/lista"); // Java
-        categorias = JsonSerializer.Deserialize<IEnumerable<Categoria>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        //var httpResponse = await httpClient.GetStringAsync("productos"); // .NET
+        var httpResponse = await httpClient.GetStringAsync("productos/lista"); // Java
+        productos = JsonSerializer.Deserialize<IEnumerable<Producto>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     }
 
     private void goAdd()
     {
-        navigationManager.NavigateTo("categoria/agregar");
+        navigationManager.NavigateTo("producto/agregar");
     }
 }
