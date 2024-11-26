@@ -8795,11 +8795,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\YummyAdminWasm.csproj",
+      "projectUniqueName": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\YummyAdminWasm.csproj",
       "projectName": "YummyAdminWasm",
-      "projectPath": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\YummyAdminWasm.csproj",
+      "projectPath": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\YummyAdminWasm.csproj",
       "packagesPath": "C:\\Users\\auror\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\obj\\",
+      "outputPath": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

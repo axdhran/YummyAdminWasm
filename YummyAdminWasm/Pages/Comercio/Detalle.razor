@@ -24,9 +24,9 @@
                         
                         <MudTextField Label="Categoría" @bind-Value="categoria.nombre" For="@(() => categoria.nombre)" ReadOnly="ReadOnly" ></MudTextField>
                            
-                        <MudImage Src="@comercio.logo" Alt="Logo" Elevation="25" Class="rounded-lg"  />
-                          
-                        <MudImage Src="@comercio.imagen" Alt="Imagen" Elevation="25" Class="rounded-lg" />
+                        <MudImage Src="@comercio.logo" Alt="Logo" Elevation="25" Class="rounded-lg" Style="width: 100px; height: 100px;" />
+                        <MudImage Src="@comercio.imagen" Alt="Imagen" Elevation="25" Class="rounded-lg" Style="width: 100px; height: 100px;" />
+
                     </MudCardContent>
 
                     <MudCardActions>

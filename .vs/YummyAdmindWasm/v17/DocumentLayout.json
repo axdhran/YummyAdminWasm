@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\",
+  "WorkspaceRootPath": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|c:\\users\\auror\\documents\\projects\\yummyadminwasm\\yummyadminwasm\\pages\\comercio\\modificar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|solutionrelative:yummyadminwasm\\pages\\comercio\\modificar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|c:\\users\\auror\\documents\\projects\\yummyprojects\\yummyadminwasm\\yummyadminwasm\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|solutionrelative:yummyadminwasm\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|c:\\users\\auror\\documents\\projects\\yummyadminwasm\\yummyadminwasm\\pages\\producto\\modificar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|solutionrelative:yummyadminwasm\\pages\\producto\\modificar.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|c:\\users\\auror\\documents\\projects\\yummyprojects\\yummyadminwasm\\yummyadminwasm\\pages\\comercio\\detalle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBE5AEAA-923E-4556-9B2A-07E72448C907}|YummyAdminWasm\\YummyAdminWasm.csproj|solutionrelative:yummyadminwasm\\pages\\comercio\\detalle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,33 +41,29 @@
               "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Modificar.razor",
-              "DocumentMoniker": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Comercio\\Modificar.razor",
-              "RelativeDocumentMoniker": "YummyAdminWasm\\Pages\\Comercio\\Modificar.razor",
-              "ToolTip": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Comercio\\Modificar.razor",
-              "RelativeToolTip": "YummyAdminWasm\\Pages\\Comercio\\Modificar.razor",
-              "ViewState": "AgIAADgAAAAAAAAAAAAYwE4AAAAsAAAAAAAAAA==",
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "YummyAdminWasm\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Home.razor",
+              "RelativeToolTip": "YummyAdminWasm\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-13T04:44:12.501Z",
+              "WhenOpened": "2024-11-26T03:42:18.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Modificar.razor",
-              "DocumentMoniker": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Producto\\Modificar.razor",
-              "RelativeDocumentMoniker": "YummyAdminWasm\\Pages\\Producto\\Modificar.razor",
-              "ToolTip": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Producto\\Modificar.razor",
-              "RelativeToolTip": "YummyAdminWasm\\Pages\\Producto\\Modificar.razor",
-              "ViewState": "AgIAADIAAAAAAAAAAAAYwD8AAAA6AAAAAAAAAA==",
+              "Title": "Detalle.razor",
+              "DocumentMoniker": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Comercio\\Detalle.razor",
+              "RelativeDocumentMoniker": "YummyAdminWasm\\Pages\\Comercio\\Detalle.razor",
+              "ToolTip": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\Pages\\Comercio\\Detalle.razor",
+              "RelativeToolTip": "YummyAdminWasm\\Pages\\Comercio\\Detalle.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-13T04:44:11.688Z",
+              "WhenOpened": "2024-11-26T03:38:54.636Z",
               "EditorCaption": ""
             }
           ]

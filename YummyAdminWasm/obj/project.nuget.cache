@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WTeV+hqk3m4=",
+  "dgSpecHash": "emlwyr9geX0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\auror\\Documents\\Projects\\YummyAdminWasm\\YummyAdminWasm\\YummyAdminWasm.csproj",
+  "projectFilePath": "C:\\Users\\auror\\Documents\\Projects\\YummyProjects\\YummyAdminWasm\\YummyAdminWasm\\YummyAdminWasm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\auror\\.nuget\\packages\\blazored.localstorage\\4.5.0\\blazored.localstorage.4.5.0.nupkg.sha512",
     "C:\\Users\\auror\\.nuget\\packages\\firebaseauthentication.net\\4.1.0\\firebaseauthentication.net.4.1.0.nupkg.sha512",

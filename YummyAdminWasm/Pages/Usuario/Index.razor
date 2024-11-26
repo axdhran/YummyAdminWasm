@@ -1,0 +1,83 @@
+﻿@page "/usuario/index"
+
+@using MudBlazor
+@using YummyAdmindWasm.Models
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+@inject ILocalStorageService _localStorageService
+
+<MudText Typo="Typo.h2" Class="ml">Usuarios</MudText>
+
+<MudTable Items="@usuarios" Hover="true" Bordered="true" Striped="true">
+    <ToolBarContent>
+        <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" OnClick="goAdd" />
+        <MudSpacer />
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Nombre</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Rol</MudTh>
+        <MudTh>Acciones</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="id">@context.Id</MudTd>
+        <MudTd DataLabel="nombre">@context.Nombre</MudTd>
+        <MudTd DataLabel="email">@context.Login</MudTd>
+        <MudTd DataLabel="rol">@context.IdRol</MudTd>
+        <MudTd>
+            <MudButton Href="@($"/usuario/detalle/{context.Id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Info"
+                       Class="text-center">Detalle</MudButton>
+            <MudButton Href="@($"/usuario/editar/{context.Id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Tertiary"
+                       Class="text-center">Editar</MudButton>
+            <MudButton Href="@($"/usuario/eliminar/{context.Id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning"
+                       Class="text-center">Eliminar</MudButton>
+        </MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager />
+    </PagerContent>
+</MudTable>
+
+@code {
+    private IEnumerable<Usuario>? usuarios = new List<Usuario>();
+
+    private Usuario usuario = new Usuario();
+
+
+
+    protected override async Task OnInitializedAsync()
+
+    {
+
+        httpClient.DefaultRequestHeaders.Authorization =
+
+            new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
+
+        await getAll();
+
+    }
+
+
+
+    private async Task getAll()
+
+    {
+
+        var httpResponse = await httpClient.GetStringAsync("auth/usuarios/lista"); // Endpoint Java
+
+        usuarios = JsonSerializer.Deserialize<IEnumerable<Usuario>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+    }
+
+
+
+    private void goAdd()
+
+    {
+
+        navigationManager.NavigateTo("usuario/agregar");
+
+    }
+}
