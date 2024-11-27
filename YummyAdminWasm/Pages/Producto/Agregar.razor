@@ -37,6 +37,13 @@
                                 <MudSelectItem Value="@item.id">@item.nombre</MudSelectItem>
                             }
                         </MudSelect>
+                        <MudSelect Variant="Variant.Outlined" Label="Comercio" AnchorOrigin="Origin.BottomCenter"
+                                   @bind-Value="comercioSeleccionado">
+                            @foreach (var item in comercios)
+                            {
+                                <MudSelectItem Value="@item.id">@item.nombre</MudSelectItem>
+                            }
+                        </MudSelect>
 
                         <br>
                         <br>
@@ -75,9 +82,11 @@
 @code {
     bool success;
     private IEnumerable<CategoriaProducto> categoriasProducto = new List<CategoriaProducto>();
+    private IEnumerable<Comercio> comercios = new List<Comercio>();
     private bool showLeaveAlert = false;
     Producto producto = new Producto();
     private int categoriaSeleccionada;
+    private int comercioSeleccionado;
 
     private IBrowserFile? selectedImageFile;
 
@@ -91,6 +100,13 @@
         httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
         await getCategoriasProducto();
+        await getComercios();
+
+        var primeraComercio = comercios.FirstOrDefault();
+        if (primeraComercio != null)
+        {
+            comercioSeleccionado = primeraComercio.id;
+        }
     }
 
     private async Task OnValidSubmit(EditContext context)
@@ -173,6 +189,7 @@
     {
         producto.categoriaProductoId = categoriaSeleccionada;
         producto.imagen = downloadUrl;
+        producto.comercioId = comercioSeleccionado;
         var httpResponse = await httpClient.PostAsJsonAsync<Producto>("productos", producto);
 
         if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
@@ -195,5 +212,12 @@
         //var httpResponse = await httpClient.GetStringAsync("categoriaProductos"); // .NET
         var httpResponse = await httpClient.GetStringAsync("categoriaProductos/lista"); // Java
         categoriasProducto = JsonSerializer.Deserialize<IEnumerable<CategoriaProducto>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    }
+
+    private async Task getComercios()
+    {
+        //var httpResponse = await httpClient.GetStringAsync("categorias"); // .NET
+        var httpResponse = await httpClient.GetStringAsync("comercios/lista"); // Java
+        comercios = JsonSerializer.Deserialize<IEnumerable<Comercio>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     }
 }

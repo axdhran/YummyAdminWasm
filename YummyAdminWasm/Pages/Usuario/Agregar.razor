@@ -98,9 +98,18 @@
     private async Task SaveUsuario()
 
     {
-
-        var httpResponse = await httpClient.PostAsJsonAsync("auth/registro", usuario);
-
+       // var httpClient2 = new HttpClient { BaseAddress = new Uri("http://localhost:8080/api/") };
+        var httpResponse = await httpClient.PostAsJsonAsync("auth/registro",
+        new
+        {
+            nombre = usuario.Nombre,
+            apellido = usuario.Apellido,
+            telefono = usuario.Telefono,
+            login = usuario.Login,
+            clave = usuario.Clave,
+            rolId = usuario.IdRol
+        });
+       // var httpResponse = await httpClient2.PostAsJsonAsync("auth/registro",usuario);
 
 
         if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
