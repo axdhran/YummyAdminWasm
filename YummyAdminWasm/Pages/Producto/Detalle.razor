@@ -19,10 +19,7 @@
                         <MudTextField Label="Nombre" @bind-Value="producto.nombre" For="@(() => producto.nombre)" ReadOnly="ReadOnly" />
                         <MudTextField Label="Precio" @bind-Value="producto.precio" For="@(() => producto.precio)" ReadOnly="ReadOnly" />
                         <MudTextField Label="Descripción" @bind-Value="producto.descripcion" For="@(() => producto.descripcion)" ReadOnly="ReadOnly" />
-
-                        <MudTextField Label="Categoría" @bind-Value="categoria.nombre" For="@(() => categoria.nombre)" ReadOnly="ReadOnly" />
-
-                        <MudImage Src="@producto.imagen" Alt="Imagen del Producto" Elevation="25" Class="rounded-lg" />
+                        <MudImage Src="@producto.imagen" Alt="Imagen del Producto" Elevation="25" Class="rounded-lg" Style="width: 100px; height: 100px;" />
                     </MudCardContent>
 
                     <MudCardActions>
@@ -39,7 +36,6 @@
     [Parameter]
     public int id { get; set; }
     private Producto producto = new Producto();
-    private CategoriaProducto categoria = new CategoriaProducto();
     bool ReadOnly = true;
 
     protected override async Task OnInitializedAsync()
@@ -47,9 +43,6 @@
         httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
         await getProducto();
-
-        // Se asume que el Producto tiene una propiedad CategoriaProducto para mostrar la categoría asociada
-        categoria = producto.categoriaProducto;
     }
 
     private async Task getProducto()

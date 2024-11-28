@@ -8,7 +8,7 @@
 @inject ILocalStorageService _localStorageService
 
 
-<MudText Typo="Typo.h2" Class="ml">Eliminar Comercio</MudText>
+<MudText Typo="Typo.h2" Class="ml">Estas seguro que quieres eliminar este comercio?</MudText>
 
 <MudGrid>
     <MudItem xs="12" sm="7">
@@ -16,16 +16,6 @@
             <EditForm Model="comercio" OnValidSubmit="OnValidSubmit">
                 <DataAnnotationsValidator />
                 <MudCard>
-                    <MudCardContent>
-                        <MudTextField Label="Nombre" @bind-Value="comercio.nombre" For="@(() => comercio.nombre)" ReadOnly="ReadOnly" />
-                        <MudTextField Label="Telefono" @bind-Value="comercio.telefono" For="@(() => comercio.telefono)" ReadOnly="ReadOnly" />
-                        <MudTextField Label="Email" @bind-Value="comercio.email" For="@(() => comercio.email)" ReadOnly="ReadOnly" />
-                        <MudTextField Label="Direccion" @bind-Value="comercio.direccion" For="@(() => comercio.direccion)" ReadOnly="ReadOnly" />
-                        <MudTextField Label="Horario" @bind-Value="comercio.horario" For="@(() => comercio.horario)" ReadOnly="ReadOnly" />                      
-                        <MudTextField Label="Categoría" @bind-Value="categoria.nombre" For="@(() => categoria.nombre)"></MudTextField>
-                        <MudImage Src="@comercio.logo" Alt="Logo" Elevation="25" Class="rounded-lg"  />
-                        <MudImage Src="@comercio.imagen" Alt="Imagen" Elevation="25" Class="rounded-lg" />
-                    </MudCardContent>
                     <MudCardActions>
                         <MudButton Href="@($"/comercio/index")" Variant="Variant.Filled" Color="Color.Info"
                                    Class="text-center">Regresar</MudButton>

@@ -22,8 +22,8 @@
                         <MudTextField Label="Teléfono" @bind-Value="usuario.Telefono" For="@(() => usuario.Telefono)" />
                         <MudTextField Label="Login" @bind-Value="usuario.Login" For="@(() => usuario.Login)" />
 
-                        <MudTextField Label="Contraseña" @bind-Value="usuario.Clave" For="@(() => usuario.Clave)" Password="true" />
-                        <MudTextField Label="Confirmar Contraseña" @bind-Value="usuario.ConfirmClave_aux" For="@(() => usuario.ConfirmClave_aux)" Password="true" />
+                        <MudTextField Label="Contraseña" @bind-Value="usuario.Clave" For="@(() => usuario.Clave)" InputType="InputType.Password" />
+                        <MudTextField Label="Confirmar Contraseña" @bind-Value="usuario.ConfirmClave_aux" For="@(() => usuario.ConfirmClave_aux)" InputType="InputType.Password" />
 
                         <MudSelect Variant="Variant.Outlined" Label="Rol" @bind-Value="usuario.IdRol">
                             @foreach (var rol in roles)
@@ -58,10 +58,7 @@
 @code {
     private Usuario usuario = new Usuario();
 
-
-
     // Definir los roles de manera estática en el frontend
-
     private IEnumerable<Rol> roles = new List<Rol>
     {
         new Rol { Id = 1, Nombre = "ADMIN" },
@@ -70,35 +67,15 @@
     };
 
 
-
     private bool showLeaveAlert = false;
 
-
-
-    protected override async Task OnInitializedAsync()
-
-    {
-
-        // Ya no es necesario hacer la llamada HTTP para obtener los roles
-
-    }
-
-
-
     private async Task OnValidSubmit(EditContext context)
-
     {
-
         await SaveUsuario();
-
     }
-
-
 
     private async Task SaveUsuario()
-
     {
-       // var httpClient2 = new HttpClient { BaseAddress = new Uri("http://localhost:8080/api/") };
         var httpResponse = await httpClient.PostAsJsonAsync("auth/registro",
         new
         {
@@ -109,34 +86,19 @@
             clave = usuario.Clave,
             rolId = usuario.IdRol
         });
-       // var httpResponse = await httpClient2.PostAsJsonAsync("auth/registro",usuario);
-
 
         if (!(httpResponse.StatusCode == System.Net.HttpStatusCode.OK))
-
         {
-
             showLeaveAlert = true;
-
         }
-
         else
-
         {
-
             navigationManager.NavigateTo("usuario/index");
-
         }
-
     }
 
-
-
     private void CloseMe(bool value)
-
     {
-
         showLeaveAlert = false;
-
     }
 }

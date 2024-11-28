@@ -18,14 +18,14 @@
         <MudTh>Id</MudTh>
         <MudTh>Nombre</MudTh>
         <MudTh>Email</MudTh>
-        <MudTh>Rol</MudTh>
+        <MudTh>Telefono</MudTh>
         <MudTh>Acciones</MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="id">@context.Id</MudTd>
-        <MudTd DataLabel="nombre">@context.Nombre</MudTd>
-        <MudTd DataLabel="email">@context.Login</MudTd>
-        <MudTd DataLabel="rol">@context.IdRol</MudTd>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Nombre">@context.Nombre</MudTd>
+        <MudTd DataLabel="Email">@context.Login</MudTd>
+        <MudTd DataLabel="Rol">@context.Telefono</MudTd> <!-- Mostrar el nombre del rol -->
         <MudTd>
             <MudButton Href="@($"/usuario/detalle/{context.Id}")" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Info"
                        Class="text-center">Detalle</MudButton>
@@ -41,43 +41,25 @@
 </MudTable>
 
 @code {
-    private IEnumerable<Usuario>? usuarios = new List<Usuario>();
-
-    private Usuario usuario = new Usuario();
-
-
+    private IEnumerable<Usuario>? usuarios = new List<Usuario>(); // Cambiado a UsuarioSalida
 
     protected override async Task OnInitializedAsync()
-
     {
-
         httpClient.DefaultRequestHeaders.Authorization =
-
             new AuthenticationHeaderValue("Bearer", await _localStorageService.GetItemAsync<string>("token"));
 
         await getAll();
-
     }
 
-
-
     private async Task getAll()
-
     {
-
         var httpResponse = await httpClient.GetStringAsync("auth/usuarios/lista"); // Endpoint Java
 
         usuarios = JsonSerializer.Deserialize<IEnumerable<Usuario>>(httpResponse, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
     }
 
-
-
     private void goAdd()
-
     {
-
         navigationManager.NavigateTo("usuario/agregar");
-
     }
 }
