@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YummyAdminWasm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d73529582b2b232700f92d3ca8c96a813dbeb83c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ca0e9b97e52b1b1a42af6f490bf1b9db1f273b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("YummyAdminWasm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YummyAdminWasm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
